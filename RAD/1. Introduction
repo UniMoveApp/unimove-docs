@@ -6,7 +6,7 @@ Il sistema **UniMove** è un servizio di car sharing pensato esclusivamente per 
 ## 1.2 Scope of the system 
 Il sistema è destinato a un pubblico di riferimento mirato, composto dalla comunità accademica dell'Unimol. 
 I confini del sistema prevedono un'applicazione mobile in cui:
-* L'accesso è consentito tramite credenziali personali, previa accettazione delle Condizioni d'Uso e Privacy.
+* L'accesso è consentito tramite credenziali istituzionali UNIMOL, previa accettazione delle Condizioni d'Uso e Privacy.
 * I **guidatori** possono creare eventi di viaggio impostando la città di partenza, la città di arrivo (es. Pesche), gli orari, i punti di incontro intermedi (hotspot) e inserendo i dati del veicolo (modello e targa).
 * I **passeggeri** possono cercare viaggi, impostare fino a 3 tratte preferite (es. Campobasso - Pesche) per ricevere notifiche e prenotarsi agli eventi in programma.
 * È presente un sistema di comunicazione interno con notifiche (es. "Si è liberato un posto!", "Richiesta di passaggio").
@@ -25,50 +25,13 @@ Gli obiettivi fondamentali per il successo di UniMove sono:
 * **Passeggero:** Utente dell'app che cerca e partecipa a un passaggio per una determinata tratta.
 * **Tratta / Evento:** Lo spostamento in auto programmato da una città di partenza a una destinazione (es. Campobasso - Pesche), con relativi punti di incontro e orari.
 * **RAD:** Requirements Analysis Document.
-* **IBAN**: International Bank Account Number, è il codice standard internazionale utilizzato per identificare in modo univoco un conto corrente bancario. È fondamentale per inviare e ricevere bonifici in Italia e all'estero.
+* **CINECA:** Consorzio Interuniversitario che gestisce il sistema informativo accademico ESSE3, utilizzato da UNIMOL per la gestione delle credenziali istituzionali.
+* **ESSE3:** Sistema gestionale accademico fornito da CINECA, utilizzato come Identity Provider per l'autenticazione degli utenti in UniMove.
+* **IBAN:** International Bank Account Number, codice standard internazionale per identificare un conto corrente bancario, utilizzato per la gestione delle donazioni volontarie.
 
 ## 1.5 References
 * **GDPR (Regolamento UE 2016/679 - General Data Protection Regulation):** Riferimento fondamentale per le policy sulla privacy. Il sistema UniMove dovrà garantire la conformità al GDPR per il trattamento dei dati personali, in particolar modo per il trattamento dei dati di **geolocalizzazione (GPS)** degli utenti durante l'evento, per la gestione dei dati sensibili bancari (IBAN, CVC) per le quote di supporto e per la tutela della privacy nelle chat, le quali vengono opportunamente cancellate al termine della corsa.
-* **Direttiva PSD2 (Direttiva UE 2015/2366 sui servizi di pagamento):** Riferimento normativo europeo per la sicurezza delle transazioni digitali, rilevante per la gestione delle donazioni volontarie inserite tramite l'applicazione.
-* **Normative sul Car Pooling:** Riferimento legale per l'inquadramento della mobilità condivisa senza scopo di lucro. La normativa supporta il vincolo di sistema per cui il viaggio rimane gratuito, giustificando la presenza esclusiva di piccole quote di contributo per la mera condivisione delle spese del veicolo.
-* **Standard IEEE 830-1998 / ISO/IEC/IEEE 29148:2018:** Standard internazionali per le migliori pratiche di Ingegneria dei Requisiti, utilizzati come riferimento per la strutturazione, la consistenza e la verificabilità del presente documento RAD.
-
-## 1.6 Overview 
-Il resto del presente Documento di Analisi dei Requisiti (RAD) descrive dettagliatamente il sistema in termini di requisiti funzionali e non funzionali, servendo come base del contratto tra cliente e sviluppatori.
-* La **Sezione 1** (Introduction) fornisce una visione d'insieme del progetto UniMove, definendone lo scopo, l'ambito, gli obiettivi di successo, le definizioni principali e i riferimenti.
-* La **Sezione 2** descrive l'attuale situazione (il sistema corrente e le difficoltà di trasporto).
-* La **Sezione 3** descrive il sistema proposto in tutti i suoi dettagli: i requisiti funzionali, i requisiti non funzionali (usabilità, affidabilità, performance, ecc.) e i Modelli di Sistema. Questi ultimi includono gli Scenari d'uso, il Modello dei Casi d'Uso (Use Case Model), il Modello ad Oggetti di analisi (Object Model), il Modello Dinamico e i percorsi di navigazione dell'interfaccia utente con i relativi mock-up.
-* La **Sezione 4** contiene il glossario completo dei termini del dominio.# 1. Introduzione
-
-## 1.1 Purpose of the system 
-Il sistema **UniMove** è un servizio di car sharing pensato esclusivamente per gli studenti, i docenti e i dipendenti dell'Università degli Studi del Molise. Lo scopo principale del sistema è rispondere alla necessità degli utenti di raggiungere le diverse sedi universitarie, superando le problematiche legate alla carenza o inefficienza dei servizi di trasporto locale. 
-
-## 1.2 Scope of the system 
-Il sistema è destinato a un pubblico di riferimento mirato, composto dalla comunità accademica dell'Unimol. 
-I confini del sistema prevedono un'applicazione mobile in cui:
-* L'accesso è consentito tramite credenziali personali, previa accettazione delle Condizioni d'Uso e Privacy.
-* I **guidatori** possono creare eventi di viaggio impostando la città di partenza, la città di arrivo (es. Pesche), gli orari, i punti di incontro intermedi (hotspot) e inserendo i dati del veicolo (modello e targa).
-* I **passeggeri** possono cercare viaggi, impostare fino a 3 tratte preferite (es. Campobasso - Pesche) per ricevere notifiche e prenotarsi agli eventi in programma.
-* È presente un sistema di comunicazione interno con notifiche (es. "Si è liberato un posto!", "Richiesta di passaggio").
-* È incluso un sistema di feedback che permette di lasciare recensioni testuali ai guidatori e di segnalare comportamenti scorretti.
-* È prevista la possibilità per i passeggeri di effettuare una donazione volontaria al guidatore, con l'inserimento e la gestione delle informazioni bancarie (IBAN).
-
-## 1.3 Objectives and success criteria of the project 
-Gli obiettivi fondamentali per il successo di UniMove sono:
-* **Risoluzione di un bisogno reale:** Fornire un'alternativa logistica valida per colmare le carenze dei servizi di trasporto verso le sedi universitarie.
-* **Coinvolgimento della community:** Ottenere una base di utenti attivi grazie a un'interfaccia intuitiva che faciliti la scoperta degli eventi e la gestione delle prenotazioni tramite promemoria e notifiche push.
-* **Affidabilità e Sicurezza:** Garantire un ambiente fidato tramite il sistema di recensioni pubbliche e i meccanismi formali di segnalazione degli utenti.
-
-## 1.4 Definitions, acronyms, and abbreviations 
-* **UniMove:** Nome dell'applicazione mobile di car sharing universitario.
-* **Guidatore:** Utente dell'app che mette a disposizione il proprio veicolo creando un "Evento" e specificandone i dettagli (targa, modello, preferenze di viaggio).
-* **Passeggero:** Utente dell'app che cerca e partecipa a un passaggio per una determinata tratta.
-* **Tratta / Evento:** Lo spostamento in auto programmato da una città di partenza a una destinazione (es. Campobasso - Pesche), con relativi punti di incontro e orari.
-* **RAD:** Requirements Analysis Document.
-* **IBAN**: International Bank Account Number, è il codice standard internazionale utilizzato per identificare in modo univoco un conto corrente bancario. È fondamentale per inviare e ricevere bonifici in Italia e all'estero.
-
-## 1.5 References
-* **GDPR (Regolamento UE 2016/679 - General Data Protection Regulation):** Riferimento fondamentale per le policy sulla privacy. Il sistema UniMove dovrà garantire la conformità al GDPR per il trattamento dei dati personali, in particolar modo per il trattamento dei dati di **geolocalizzazione (GPS)** degli utenti durante l'evento, per la gestione dei dati sensibili bancari (IBAN, CVC) per le quote di supporto e per la tutela della privacy nelle chat, le quali vengono opportunamente cancellate al termine della corsa.
+* **API ESSE3 CINECA — Documentazione tecnica (e3rest):** Riferimento per l'integrazione con il sistema di autenticazione istituzionale. UniMove utilizza l'endpoint `/e3rest/api/login` con autenticazione Basic Auth per verificare le credenziali degli utenti direttamente su CINECA, che funge da source of truth per l'identità e il ruolo degli utenti (studente, docente, dipendente).
 * **Direttiva PSD2 (Direttiva UE 2015/2366 sui servizi di pagamento):** Riferimento normativo europeo per la sicurezza delle transazioni digitali, rilevante per la gestione delle donazioni volontarie inserite tramite l'applicazione.
 * **Normative sul Car Pooling:** Riferimento legale per l'inquadramento della mobilità condivisa senza scopo di lucro. La normativa supporta il vincolo di sistema per cui il viaggio rimane gratuito, giustificando la presenza esclusiva di piccole quote di contributo per la mera condivisione delle spese del veicolo.
 * **Standard IEEE 830-1998 / ISO/IEC/IEEE 29148:2018:** Standard internazionali per le migliori pratiche di Ingegneria dei Requisiti, utilizzati come riferimento per la strutturazione, la consistenza e la verificabilità del presente documento RAD.
