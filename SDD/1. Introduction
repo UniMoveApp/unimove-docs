@@ -1,0 +1,33 @@
+# 1. Introduction
+
+## 1.1 Purpose of the system
+Questo documento  definisce l’architettura software del sistema UniMove e documenta le scelte tecniche adottate dal team di sviluppo. L'SDD descrive l'organizzazione del sistema nel suo complesso, definendo i sottosistemi, le piattaforme, l'architettura generale e i meccanismi di controllo degli accessi. Il documento serve come guida tecnica per l'implementazione, fungendo da ponte strutturale tra l'analisi dei requisiti e la fase di codifica vera e propria.
+
+## 1.2 Design Goals
+L'architettura di UniMove è stata progettata per soddisfare i seguenti obiettivi:
+* **Usabilità:** Interfaccia mobile chiara per permettere a studenti, docenti e dipendenti di gestire o prenotare passaggi rapidamente.
+* **Sicurezza:** Autenticazione delegata al sistema istituzionale CINECA e comunicazione sicura tra client e server tramite token JWT.
+* **Performance:** Tempi di risposta rapidi per garantire il corretto aggiornamento in real-time delle code di prenotazione e delle disponibilità.
+* **Manutenibilità:** Separazione netta delle responsabilità adottando uno stile architetturale Three-tier, per facilitare l'individuazione di difetti e la futura modifica del codice.
+* **Scalabilità:** Infrastruttura predisposta per supportare in futuro un aumento del numero di utenti attivi e l'eventuale aggiunta di nuovi moduli.
+
+## 1.3 Definitions, acronyms, and abbreviations
+ **API REST:** Representational State Transfer, stile architetturale usato per la comunicazione tra l'app mobile e il server backend.
+ **CINECA:** Consorzio Interuniversitario per il Calcolo Automatico.
+ **JWT (JSON Web Token):** Standard crittografico adottato per la gestione sicura delle sessioni autorizzate tra client e server.
+ **RAD:** Requirements Analysis Document.
+ **SDD:** System Design Document.
+ **Three-tier:** Architettura software suddivisa in tre livelli logici (Presentation, Application, Data).
+
+## 1.4 References
+**Requirements Analysis Document (RAD)** di UniMove.
+ **Flutter**: [https://docs.flutter.dev/](https://docs.flutter.dev/)
+ **Spring Boot**: [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot)
+ **PostgreSQL**: [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/)
+
+## 1.5 Overview
+Il presente documento è organizzato in sezioni strutturate per descrivere l'architettura del sistema:
+* La **Sezione 1** definisce gli scopi, gli obiettivi di design e i riferimenti.
+* La **Sezione 2** descrive l'eventuale architettura del sistema preesistente.
+* La **Sezione 3** illustra il design del sistema, includendo la scomposizione in sottosistemi, il mapping hardware/software e il controllo degli accessi.
+* La **Sezione 4** contiene i riferimenti delle documentazioni ufficiali usate per le architetture del progetto.
