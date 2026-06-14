@@ -29,5 +29,5 @@ Di seguito sono definiti i termini tecnici utilizzati nel presente documento:
 ## 1.4 Riferimenti
 * **RAD:** Requirements Analysis Document del progetto UniMove.
 * **SDD:** System Design Document del progetto UniMove.
-* **Spring Boot (Documentazione ufficiale):** https://spring.io/projects/spring-boot [25].
-* **Flutter (Documentazione ufficiale):** https://docs.flutter.dev/ [25].
+* **Spring Boot (Documentazione ufficiale):** https://spring.io/projects/spring-boot.
+* **Flutter (Documentazione ufficiale):** https://docs.flutter.dev/.
